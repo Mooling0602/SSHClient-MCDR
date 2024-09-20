@@ -13,3 +13,4 @@ Not support English yet, translate yourself.
 ## 当前局限
 - ssh连接是全局共享的，所有人都能访问
 - 未成功建立连接的ssh会话，也需要断开后才能再次建立连接
+- 仅支持默认端口22，将于提交到插件仓库前修复
