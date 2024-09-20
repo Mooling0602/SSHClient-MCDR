@@ -1,0 +1,14 @@
+{
+    "id": "sshclient",
+    "version": "0.0.3",
+    "name": "SSHClient",
+    "description": {
+	    "en_us": "A SSH client instance for MCDR.",
+	    "zh_cn": "一个MCDR的SSH客户端实例"
+    },
+    "dependencies": {
+	    "mcdreforged": ">=2.1.0"
+    },
+    "author": "Mooling0602",
+    "link": "https://github.com/Mooling0602/SSHClient-MCDR"
+}
