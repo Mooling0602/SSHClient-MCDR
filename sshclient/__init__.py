@@ -14,10 +14,15 @@ class SSHClient:
             src.reply("[SSH]已经连接到了SSH服务器")
         else: 
             try:
-                src.reply(f"[SSH]正在连接到 {hostname}...")
+                # debug
+                src.reply(f"[SSH]使用端口：{port}")
+                if port == 22:
+                    src.reply(f"[SSH]正在连接到 {hostname}...")
+                else:
+                    src.reply(f"[SSH]正在连接到 {hostname}:{port}...")
                 self.client = paramiko.SSHClient()
                 self.client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-                self.client.connect(hostname, port=port, username=username, password=password)
+                self.client.connect(hostname, port=port, username=username, password=password, timeout=5)
                 src.reply("[SSH]成功连接到SSH服务器")
                 src.reply("[SSH]SSH会话为全局共享，所有人都可以使用，且同时只能运行一个ssh会话")
                 src.reply("[SSH]若要连接到新的ssh会话，请先断开连接")
@@ -67,8 +72,8 @@ def on_load(server: PluginServerInterface, old_module):
               .then(Text("hostname")
                     .then(Text("username")
                         .then(Text("password")
-                            .then(Text("port").suggests(lambda src, ctx: ["22"]))
-                            .runs(lambda src, ctx: ssh_client.connect(src, ctx["hostname"], ctx["username"], ctx["password"], ctx.get("port", 22)))))))
+                            .then(Integer("port").suggests(lambda: ["22"])
+                            .runs(lambda src, ctx: ssh_client.connect(src, ctx["hostname"], ctx["username"], ctx["password"], ctx.get("port", 22))))))))
         .then(Literal("disconnect")
               .runs(lambda src: ssh_client.disconnect(src)))
         .then(Literal("help")
