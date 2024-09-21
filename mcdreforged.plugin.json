@@ -1,6 +1,6 @@
 {
     "id": "sshclient",
-    "version": "0.0.3",
+    "version": "0.0.1",
     "name": "SSHClient",
     "description": {
 	    "en_us": "A SSH client instance for MCDR.",
