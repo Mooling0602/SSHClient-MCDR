@@ -1,6 +1,8 @@
 # SSHClient-MCDR
 MCDR的一个SSH客户端实现。
 
+请注意，本插件设计时未考虑任何安全问题，请勿在生产环境下使用！
+
 Not support English yet, translate yourself.
 
 ## 用法
