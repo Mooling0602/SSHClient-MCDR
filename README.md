@@ -1,7 +1,10 @@
 # SSHClient-MCDR
 MCDR的一个SSH客户端实现，仅供娱乐。
 
-请注意，本插件设计时未考虑任何安全问题，请勿在生产环境下使用！
+> [!CAUTION]
+> This plugin is just for fun, and it's unsafe for your Minecraft and ssh server, do not use it in production environment!
+> 
+> 请注意，本插件设计时未考虑任何安全问题，请不要在生产环境中使用！
 
 Not support English yet, translate yourself.
 
